@@ -1,0 +1,361 @@
+/* Easy Guide CSS: Premium Modern Aesthetics */
+
+/* Node Container Base */
+.easy-guide-maker-container,
+.easy-guide-viewer-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background: rgba(18, 18, 18, 0.9);
+    border-radius: 8px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #e0e0e0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Button Stylings */
+.easy-guide-btn-row,
+.easy-guide-add-row,
+.easy-guide-footer-row,
+.easy-guide-viewer-footer {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.easy-guide-btn {
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    transition: all 0.2s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.easy-guide-btn.primary {
+    background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.4);
+}
+.easy-guide-btn.primary:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 8px rgba(79, 70, 229, 0.6);
+}
+
+.easy-guide-btn.danger {
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.4);
+}
+.easy-guide-btn.danger:hover {
+    filter: brightness(1.1);
+}
+
+.easy-guide-btn.secondary {
+    background: #333333;
+    border: 1px solid #444444;
+}
+.easy-guide-btn.secondary:hover {
+    background: #444444;
+}
+
+.easy-guide-btn.info {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    box-shadow: 0 2px 4px rgba(6, 182, 212, 0.4);
+}
+.easy-guide-btn.info:hover {
+    filter: brightness(1.1);
+}
+
+.easy-guide-btn.add-btn {
+    background: #10b981;
+    min-width: 60px;
+}
+.easy-guide-btn.add-btn:hover {
+    background: #059669;
+}
+
+/* Dropdown & Inputs */
+.easy-guide-select {
+    flex: 1;
+    background: #252525;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 6px;
+    color: #e0e0e0;
+    font-size: 13px;
+    outline: none;
+}
+
+/* List Area */
+.easy-guide-list-body,
+.easy-guide-viewer-list {
+    flex: 1;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* List Item & Details Accordion */
+.easy-guide-list-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    overflow: hidden;
+    transition: background-color 0.2s;
+}
+
+.easy-guide-list-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.easy-guide-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.easy-guide-item-title {
+    font-weight: bold;
+    font-size: 13px;
+    color: #f3f4f6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 180px;
+}
+
+.easy-guide-item-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.easy-guide-btn-small {
+    background: #374151;
+    border: none;
+    color: #d1d5db;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    cursor: pointer;
+}
+.easy-guide-btn-small:hover {
+    background: #4b5563;
+    color: #ffffff;
+}
+.easy-guide-btn-small.delete-btn {
+    background: #991b1b;
+}
+.easy-guide-btn-small.delete-btn:hover {
+    background: #dc2626;
+}
+
+.easy-guide-item-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0 10px;
+}
+
+.easy-guide-item-details.open {
+    max-height: 300px;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.easy-guide-widget-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.easy-guide-widget-table th {
+    text-align: left;
+    color: #9ca3af;
+    padding: 4px 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.easy-guide-widget-table td {
+    color: #f3f4f6;
+    padding: 4px 6px;
+    word-break: break-all;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.easy-guide-no-widgets {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Modal Windows style */
+.easy-guide-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.easy-guide-modal-backdrop.show {
+    opacity: 1;
+}
+
+.easy-guide-modal {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    width: 500px;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.95);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: #f3f4f6;
+    font-family: inherit;
+    overflow: hidden;
+}
+
+.easy-guide-modal-backdrop.show .easy-guide-modal {
+    transform: scale(1);
+}
+
+.easy-guide-modal-header {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.easy-guide-modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.easy-guide-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* Viewer and Preview UI Specifics */
+.easy-guide-preview-area {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.easy-guide-preview-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.easy-guide-preview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.easy-guide-preview-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.easy-guide-preview-item-header {
+    font-weight: bold;
+    font-size: 13px;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.easy-guide-preview-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.easy-guide-preview-memo {
+    background: rgba(251, 191, 36, 0.1);
+    border-left: 3px solid #fbbf24;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #fbbf24;
+}
+
+.easy-guide-preview-download a {
+    color: #60a5fa;
+    font-size: 12px;
+    text-decoration: none;
+}
+.easy-guide-preview-download a:hover {
+    text-decoration: underline;
+}
+
+.easy-guide-preview-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.easy-guide-preview-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.easy-guide-preview-widget-name {
+    color: #9ca3af;
+    width: 40%;
+}
+
+.easy-guide-preview-widget-val {
+    color: #e5e7eb;
+    word-break: break-all;
+}
+
+/* Viewer header */
+.easy-guide-viewer-header {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 10px;
+    text-align: center;
+    color: #3b82f6;
+    text-transform: uppercase;
+}
