@@ -12,6 +12,26 @@ app.registerExtension({
                 this.active_unet_count = 1;
                 this.max_unets = 15;
                 
+                const hideWidget = (w) => {
+                    if (!w || w.type === "converted-widget") return;
+                    w.origType = w.type;
+                    w.origDraw = w.draw;
+                    w.origComputeSize = w.computeSize;
+                    w.type = "converted-widget";
+                    w.draw = () => {};
+                    w.computeSize = () => [0, 0];
+                };
+                
+                const showWidget = (w, defaultType) => {
+                    if (!w || w.type !== "converted-widget") return;
+                    w.type = w.origType || defaultType;
+                    w.draw = w.origDraw;
+                    w.computeSize = w.origComputeSize;
+                    delete w.origType;
+                    delete w.origDraw;
+                    delete w.origComputeSize;
+                };
+                
                 const updateWidgets = () => {
                     for (let i = 1; i <= this.max_unets; i++) {
                         const nameWidget = this.widgets.find(w => w.name === `unet_${i}_name`);
@@ -19,17 +39,17 @@ app.registerExtension({
                         
                         if (nameWidget && dtypeWidget) {
                             if (i <= this.active_unet_count) {
-                                nameWidget.type = "combo";
-                                dtypeWidget.type = "combo";
+                                showWidget(nameWidget, "combo");
+                                showWidget(dtypeWidget, "combo");
                             } else {
-                                nameWidget.type = "converted-widget";
-                                dtypeWidget.type = "converted-widget";
+                                hideWidget(nameWidget);
+                                hideWidget(dtypeWidget);
                             }
                         }
                     }
                     
-                    const baseHeight = 180;
-                    const calculatedHeight = baseHeight + (this.active_unet_count - 1) * 60;
+                    const baseHeight = 150;
+                    const calculatedHeight = baseHeight + (this.active_unet_count - 1) * 55;
                     
                     this.setSize([350, calculatedHeight]);
                     this.setDirtyCanvas(true, true);
