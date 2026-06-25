@@ -1,7 +1,7 @@
 ---
 trigger: always_on
 ---
-
+** 프로젝트 폴더 밖의 파일이나 폴더는 절데 수정하면 안됨
 **코드나 파일명을 제외한 모든 내용 기록은 한글로 작성하는것을 기본으로 한다**
 ** 현재 프로젝트 깃허브주소:** https://github.com/promptmaster0623-rgb/prompt-master-pack 
 # 작업시작 전
