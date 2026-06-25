@@ -1,5 +1,13 @@
 # 📝 Change Log (변경 이력 기록)
 
+## [260625-21:30] - Random UNET Loader 추가 및 Random LoRA Loader 개선
+- **신규 (New)**
+  - `Random UNET Loader` 노드 추가: 여러 UNET 모델 중 1개를 랜덤으로 지정하여 로드
+  - ComfyUI 기본 '확산 모델 로드' 처럼 output(model) 지원
+  - 동적 UI: UNET 모델과 가중치 데이터 유형 옵션(`weight_dtype`)이 한 세트로 묶여 '+' 및 '-' 버튼으로 추가/삭제 가능 (최대 15개)
+- **개선 (Improvement)**
+  - `Random LoRA Loader` 개선: 초기 생성 및 기본 상태에서 첫 번째 LoRA 설정이 "None"이 아닌 실제 폴더 내 첫 번째 LoRA 명칭으로 지정되도록 기본값 변경
+
 ## [260625-21:16] - Random LoRA Loader (랜덤로라로더) 커스텀 노드 추가
 - **신규 (New)**
   - `Random LoRA Loader` 노드 추가: 여러 LoRA 모델 중 1개를 랜덤으로 선택하여 로드
