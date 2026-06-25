@@ -6,7 +6,6 @@ trigger: always_on
 ** 현재 프로젝트 깃허브주소:** https://github.com/promptmaster0623-rgb/prompt-master-pack 
 # 작업시작 전
 1. 깃허브확인 및 'CHANGELOG.md' 검토
-- 지시사항과 관련된 내용이 없다면 작업시작 전에 한하여 스킵한다.
 2. 검토과정에서 처리된부분을 이후에도 반복해서 추가 검토/추론 하지않도록 특이사항을 깃허브에 기록해둔다.(검토확인 일시는 'YYMMDD-HHMM' 형태로 한국시간 기준으로 기록)
 
 # 작업방향
