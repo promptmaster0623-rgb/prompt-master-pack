@@ -1,5 +1,12 @@
 # 📝 Change Log (변경 이력 기록)
 
+## [260625-21:16] - Random LoRA Loader (랜덤로라로더) 커스텀 노드 추가
+- **신규 (New)**
+  - `Random LoRA Loader` 노드 추가: 여러 LoRA 모델 중 1개를 랜덤으로 선택하여 로드
+  - ComfyUI 기본 'LoRA 로드' 처럼 input(model, clip) 및 output(model, clip) 지원
+  - 동적 UI: '+' 및 '-' 버튼을 지원하여 추가할 때마다 노드 세로 크기가 자동으로 길어지게 함 (최대 15개)
+  - LoRA 모델당 강도(strength) 설정 개별 세트 매핑 및 seed 기반의 랜덤화 지원
+
 ## [260623-14:00] - 이지 가이드 노드 추가 및 UI 버그 수정
 - **신규 (New)**
   - `EasyGuideMaker` 노드 추가: 워크플로우 내 노드들의 초기 세팅 저장, 초기화 기능, 메모 및 다운로드 링크 입력 기능 제공
