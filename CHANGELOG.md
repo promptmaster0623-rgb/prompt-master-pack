@@ -1,5 +1,14 @@
 # 📝 Change Log (변경 이력 기록)
 
+## [260625-21:32] - 노드 파일 모듈화 분리 작업
+- **개선 (Improvement)**
+  - 각 커스텀 노드를 전용 파이썬 파일로 개별 분리하여 코드 모듈화 구성
+    - `nodes/easy_guide.py`: EasyGuideMaker / Viewer 노드 및 API 저장 엔드포인트 분리
+    - `nodes/random_lora.py`: RandomLoraLoader 노드 분리
+    - `nodes/random_unet.py`: RandomUNETLoader 노드 분리
+    - `nodes/__init__.py`: 각 노드 클래스 통합 및 패키지 진입점 설정
+  - 기존 단일 `nodes.py` 파일 제거
+
 ## [260625-21:30] - Random UNET Loader 추가 및 Random LoRA Loader 개선
 - **신규 (New)**
   - `Random UNET Loader` 노드 추가: 여러 UNET 모델 중 1개를 랜덤으로 지정하여 로드
