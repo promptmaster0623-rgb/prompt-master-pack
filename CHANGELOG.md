@@ -1,5 +1,16 @@
 # 📝 Change Log (변경 이력 기록)
 
+## [260626-15:20] - Random LoRA Loader 가중치 설정 방식 개선
+- **신규 및 개선 (New & Improvement)**
+  - `Random LoRA Loader` 가중치 개별/공통 설정 기능 추가
+    - **개별설정(individual)**: 기존과 동일하게 무작위 선택된 각 LoRA 모델에 매핑된 개별 강도(strength) 값을 반영.
+    - **공통설정(common)**: 무작위 선택된 LoRA에 무관하게 공통의 가중치 방식을 사용.
+      - **고정(fixed)**: 입력된 고정값(`common_fixed_strength`)을 모든 LoRA에 적용.
+      - **랜덤(random)**: 설정 범위(`common_min_strength` ~ `common_max_strength`) 내에서 seed에 기반해 무작위 가중치 추출 적용.
+  - **동적 UI/UX 적용**:
+    - `weight_mode` 및 `common_type` 선택에 따라 관련 입력 위젯들만 유동적으로 화면에 보이고 숨김 처리되어 직관적인 UX를 제공하도록 JS 로직 수정.
+    - 선택 위젯 개수에 맞추어 노드의 전체 크기(높이)가 매끄럽게 자동 조절되도록 최적화.
+
 ## [260625-21:36] - 동적 위젯 숨김 버그 수정
 - **오류 수정 (Fix)**
   - `Random LoRA Loader` 및 `Random UNET Loader` 노드에서 사용하지 않는 위젯들이 숨겨지지 않고 전부 렌더링되던 문제 수정

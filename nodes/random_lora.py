@@ -18,6 +18,12 @@ class RandomLoraLoader:
             "model": ("MODEL",),
             "clip": ("CLIP",),
             "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
+            "weight_mode": (["individual", "common"], {"default": "individual"}),
+            "common_type": (["fixed", "random"], {"default": "fixed"}),
+            "common_fixed_strength": ("FLOAT", {"default": 1.0, "min": -10.0, "max": 10.0, "step": 0.01}),
+            "common_min_strength": ("FLOAT", {"default": 0.0, "min": -10.0, "max": 10.0, "step": 0.01}),
+            "common_max_strength": ("FLOAT", {"default": 1.0, "min": -10.0, "max": 10.0, "step": 0.01}),
+            
             "lora_1_name": (loras, {"default": lora_1_default}),
             "lora_1_strength": ("FLOAT", {"default": 1.0, "min": -10.0, "max": 10.0, "step": 0.01}),
         }
@@ -36,7 +42,7 @@ class RandomLoraLoader:
     FUNCTION = "load_random_lora"
     CATEGORY = "loaders"
 
-    def load_random_lora(self, model, clip, seed, **kwargs):
+    def load_random_lora(self, model, clip, seed, weight_mode, common_type, common_fixed_strength, common_min_strength, common_max_strength, **kwargs):
         valid_loras = []
         for i in range(1, 16):
             name_key = f"lora_{i}_name"
@@ -53,6 +59,14 @@ class RandomLoraLoader:
             
         rng = random.Random(seed)
         selected_lora_name, selected_strength = rng.choice(valid_loras)
+        
+        # 가중치 모드 설정 적용
+        if weight_mode == "common":
+            if common_type == "fixed":
+                selected_strength = common_fixed_strength
+            elif common_type == "random":
+                # 시드에 기반하여 고정된 범위 내의 랜덤값 계산
+                selected_strength = rng.uniform(common_min_strength, common_max_strength)
         
         lora_path = folder_paths.get_full_path("loras", selected_lora_name)
         if not lora_path or not os.path.exists(lora_path):
